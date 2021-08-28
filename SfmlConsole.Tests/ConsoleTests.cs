@@ -24,16 +24,6 @@ namespace SfmlConsole.Tests
             console.Height.Should().Be(height, $"We set height to {height}.");
         }
 
-        /*[Fact]
-        public void PreinitializationTest()
-        {
-            var console = new SfmlConsole.Console(1, 1);
-
-            var character = console.GetCharacter(0, 0);
-
-            character.Should().NotBeNull("All tiles should be preinitialized.");
-        }*/
-
         [Fact]
         public void GetSetTest()
         {
@@ -48,16 +38,13 @@ namespace SfmlConsole.Tests
             var characterStored = console.GetCharacter(x, y);
 
             //Assert
-            characterStored.Should().BeEquivalentTo(characterToBeSet, "This is the character that we set");
+            characterStored.Should().BeEquivalentTo(characterToBeSet, "This is the character that we set.");
         }
 
-        // I have no idea how to test this
-        
         [Fact]
         public void GetSpritesTest()
         {
             //Arrange
-            //var renderTarget = new TestRenderTarget();
             var texture = new Texture("Data/font.png");
             var tilesetName = "SomeTilemap";
             var tileset = new Tileset(texture, 64, 64);
@@ -75,11 +62,10 @@ namespace SfmlConsole.Tests
             console.SetCharacter(3, 3, character);
 
             //Act
-            //renderTarget.Draw(console);
             var sprites = console.PrepareSprites().ToArray();
 
             //Assert
-            sprites.Count().Should().BeGreaterThan(0, "We intended to draw something.");
+            sprites.Count().Should().Be(3, "We intended to draw something so sprites were expected.");
         }
     }
 }
