@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SFML.Graphics;
 
 namespace SfmlConsole
 {
@@ -10,5 +6,6 @@ namespace SfmlConsole
     {
         public string TilesetName { get; init; }
         public char? Character { get; init; }
+        public Color? BackgroundColor { get; init; }
     }
 }
