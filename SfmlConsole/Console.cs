@@ -74,6 +74,10 @@ namespace SfmlConsole
                         var background = GetBackground(character.BackgroundColor.Value, 1, 1, x, y);
                         yield return background;
                     }
+                    if (character.ForegroundColor.HasValue)
+                    {
+                        sprite.Color = character.ForegroundColor.Value;
+                    }
                     if (TileWidth != sprite.TextureRect.Width || TileHeight != sprite.TextureRect.Height)
                     {
                         sprite.Scale = new SFML.System.Vector2f

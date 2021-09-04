@@ -7,5 +7,6 @@ namespace SfmlConsole
         public string TilesetName { get; init; }
         public char? Character { get; init; }
         public Color? BackgroundColor { get; init; }
+        public Color? ForegroundColor { get; init; }
     }
 }
