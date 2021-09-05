@@ -1,5 +1,6 @@
 ﻿using SFML.Graphics;
 using SFML.Window;
+using SfmlConsole.TileMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace SfmlConsole.Demo
                 var y = i / 16;
                 var character = new ConsoleCharacter()
                 {
-                    Character = (char)i,
+                    TileId = (char)i,
                     TilesetName = tilesetName
                 };
                 console.SetCharacter(x, y, character);
@@ -36,7 +37,7 @@ namespace SfmlConsole.Demo
                 {
                     var character = new ConsoleCharacter()
                     {
-                        Character = (char)219,
+                        TileId = (char)219,
                         TilesetName = tilesetName
                     };
                     console.SetCharacter(x, y, character);
@@ -54,7 +55,7 @@ namespace SfmlConsole.Demo
                 {
                     var character = new ConsoleCharacter()
                     {
-                        Character = '.',
+                        TileId = '.',
                         TilesetName = tilesetName
                     };
                     console.SetCharacter(x, y, character);
@@ -128,12 +129,16 @@ namespace SfmlConsole.Demo
             window.Closed += (sender, e) => { window.Close(); };
             window.SetFramerateLimit(60);
 
+            var utf8TileMapper = new Utf8TileMapper();
+
             var texture = new Texture("Data/font.png");
             var tilesets = new Dictionary<string, Tileset>();
-            var tileset = new Tileset(texture, 64, 64) { MapUtf8ToAscii = true };
-            var tilesetName = "font";
+            var tileset = new Tileset(texture, 64, 64);
+            tileset.SetTileMapper(utf8TileMapper);
 
+            var tilesetName = "font";
             tilesets.Add(tilesetName, tileset);
+
             tilesets.Add("sword", new Tileset(new Texture("Data/sword.png")) );
 
             var map = MapConsole(tilesets, tilesetName);

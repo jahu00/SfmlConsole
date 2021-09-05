@@ -31,7 +31,7 @@ namespace SfmlConsole.Tests
             var console = new SfmlConsole.Console(10, 10);
             var x = 5;
             var y = 6;
-            var characterToBeSet = new ConsoleCharacter() { TilesetName = "SomeTilemap", Character = 'a' };
+            var characterToBeSet = new ConsoleCharacter() { TilesetName = "SomeTilemap", TileId = 'a' };
 
             //Act
             console.SetCharacter(x, y, characterToBeSet);
@@ -51,7 +51,7 @@ namespace SfmlConsole.Tests
             var brush = new ConsoleCharacter() { TilesetName = "SomeTilemap", BackgroundColor = Color.Red };
             //var text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
             var text = "Lorem ipsum dolor sit amet";
-            var expectedCharacters = text.Select(character => brush with { Character = character });
+            var expectedCharacters = text.Select(character => brush with { TileId = character });
 
             //Act
             console.SetText(x, y, text, brush);
@@ -79,7 +79,7 @@ namespace SfmlConsole.Tests
             };
 
             var console = new SfmlConsole.Console(tilesets, 32, 32, 10, 10);
-            var character = new ConsoleCharacter() { TilesetName = tilesetName, Character = 'a' };
+            var character = new ConsoleCharacter() { TilesetName = tilesetName, TileId = 'a' };
             console.SetCharacter(1, 1, character);
             console.SetCharacter(2, 2, character);
             console.SetCharacter(3, 3, character);

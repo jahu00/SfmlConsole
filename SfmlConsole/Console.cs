@@ -6,9 +6,9 @@ namespace SfmlConsole
 {
     public class Console : Transformable, Drawable
     {
-        private ConsoleCharacter[,] Characters { get; set; }
-        public int Height => Characters.GetLength(0);
-        public int Width => Characters.GetLength(1);
+        private ConsoleCharacter[,] Tiles { get; set; }
+        public int Height => Tiles.GetLength(0);
+        public int Width => Tiles.GetLength(1);
 
         public float TileWidth { get; set; }
         public float TileHeight { get; set; }
@@ -26,18 +26,18 @@ namespace SfmlConsole
 
         public Console(int width, int height)
         {
-            Characters = new ConsoleCharacter[height, width];
+            Tiles = new ConsoleCharacter[height, width];
         }
 
         public ConsoleCharacter GetCharacter(int x, int y)
         {
-            var character = Characters[y, x];
+            var character = Tiles[y, x];
             return character;
         }
 
         public void SetCharacter(int x, int y, ConsoleCharacter characterToBeSet)
         {
-            Characters[y, x] = characterToBeSet;
+            Tiles[y, x] = characterToBeSet;
         }
 
         public void Draw(RenderTarget target, RenderStates states)
@@ -67,7 +67,7 @@ namespace SfmlConsole
                         continue;
                     }
                     var tileset = Tilesets[character.TilesetName];
-                    var sprite = tileset.GetTileSprite(character.Character);
+                    var sprite = tileset.GetTileSprite(character.TileId);
                     sprite.Position = new SFML.System.Vector2f(x * TileWidth, y * TileHeight);
                     if (character.BackgroundColor.HasValue)
                     {
@@ -114,7 +114,7 @@ namespace SfmlConsole
         {
             foreach(var character in text)
             {
-                var consoleCharacter = brush with { Character = character };
+                var consoleCharacter = brush with { TileId = character };
                 SetCharacter(x, y, consoleCharacter);
                 x++;
                 x = x % Width;
