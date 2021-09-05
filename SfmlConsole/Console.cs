@@ -52,6 +52,7 @@ namespace SfmlConsole
 
         public IEnumerable<Drawable> PrepareDrawables()
         {
+            var tileOffset = new SFML.System.Vector2f(TileWidth / 2, TileHeight / 2);
             if (BackgroundColor.HasValue)
             {
                 var background = GetBackground(BackgroundColor.Value, Width, Height);
@@ -68,7 +69,10 @@ namespace SfmlConsole
                     }
                     var tileset = Tilesets[character.TilesetName];
                     var sprite = tileset.GetTileSprite(character.TileId);
-                    sprite.Position = new SFML.System.Vector2f(x * TileWidth, y * TileHeight);
+                    sprite.Origin = new SFML.System.Vector2f(sprite.TextureRect.Width / 2, sprite.TextureRect.Height / 2);
+                    sprite.Position = new SFML.System.Vector2f(x * TileWidth, y * TileHeight) + tileOffset;
+                    sprite.Rotation = character.Rotation;
+                    
                     if (character.BackgroundColor.HasValue)
                     {
                         var background = GetBackground(character.BackgroundColor.Value, 1, 1, x, y);
@@ -86,6 +90,10 @@ namespace SfmlConsole
                             TileHeight / sprite.TextureRect.Height
                         );
                     }
+
+                    var flip = new SFML.System.Vector2f(character.HorizontalFlip ? -1 : 1, character.VerticalFlip ? -1 : 1);
+                    sprite.Scale = new SFML.System.Vector2f(sprite.Scale.X * flip.X, sprite.Scale.Y * flip.Y);
+
                     yield return sprite;
                 }
             }

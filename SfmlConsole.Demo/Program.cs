@@ -149,7 +149,7 @@ namespace SfmlConsole.Demo
 
             var timer = DateTime.UtcNow;
 
-            toolbar.SetCharacter(1, 1, new ConsoleCharacter() { TilesetName = "sword", ForegroundColor = EgaColor.Black });
+            toolbar.SetCharacter(1, 1, new ConsoleCharacter(){ TilesetName = "sword", ForegroundColor = EgaColor.Black });
 
             while (window.IsOpen)
             {

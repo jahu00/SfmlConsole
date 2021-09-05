@@ -65,6 +65,22 @@ namespace SfmlConsole
             return tileId;
         }
 
+        public T MapOtherTileId<T>(int tileId)
+        {
+            var tileIdType = typeof(T);
+            var intType = typeof(int);
+            if (tileIdType == intType)
+            {
+                return (T)Convert.ChangeType(tileId, intType);
+            }
+            
+
+            var tileMapper = TileMappers[tileIdType];
+            var otherTileId = (T)tileMapper.GetOtherTileId(tileId);
+
+            return otherTileId;
+        }
+
         public void SetTileMapper(ITileMapper tileMapper)
         {
             TileMappers[tileMapper.TileIdType] = tileMapper;
