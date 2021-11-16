@@ -25,7 +25,9 @@ namespace SfmlConsole.Tests
             var top = (int)(y * tileHeight);
             var left = (int)x * tileWidth;
             var tileset = new Tileset(texture, tileWidth, tileHeight);
-            
+            var tileMapper = new TileMapper.AsciiTileMapper();
+            tileset.SetTileMapper(tileMapper);
+
             //Act
             var sprite = tileset.GetTileSprite('a');
 

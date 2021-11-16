@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SfmlConsole\SfmlConsole.csproj" />
+    <ProjectReference Include="..\SmallHax.SfmlExtensions.Console\SmallHax.SfmlExtensions.Console.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -71,11 +71,11 @@ namespace SfmlConsole.Tests
             var texture = new Texture("Data/font.png");
             var tilesetName = "SomeTilemap";
             var tileset = new Tileset(texture, 64, 64);
+            var tileMapper = new TileMapper.AsciiTileMapper();
+            tileset.SetTileMapper(tileMapper);
             var tilesets = new Dictionary<string, Tileset>()
             {
-                {
-                    tilesetName, tileset
-                }
+                { tilesetName, tileset }
             };
 
             var console = new SfmlConsole.Console(tilesets, 32, 32, 10, 10);

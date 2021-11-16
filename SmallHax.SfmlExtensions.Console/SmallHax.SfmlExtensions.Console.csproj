@@ -2,6 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors />
+    <Company />
+    <RootNamespace>SmallHax.SfmlExtensions</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
