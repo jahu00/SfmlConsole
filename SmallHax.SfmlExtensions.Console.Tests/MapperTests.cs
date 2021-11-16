@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using SfmlConsole.TileMapper;
+using SmallHax.SfmlExtensions.TileMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace SfmlConsole.Tests
+namespace SmallHax.SfmlExtensions.Tests
 {
     public class MapperTests
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SfmlConsole.TileMapper
+namespace SmallHax.SfmlExtensions.TileMapper
 {
     public interface ITileMapper
     {

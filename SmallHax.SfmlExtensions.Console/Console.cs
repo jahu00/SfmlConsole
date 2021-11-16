@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace SfmlConsole
+namespace SmallHax.SfmlExtensions
 {
     public class Console : Transformable, Drawable
     {

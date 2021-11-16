@@ -1,9 +1,9 @@
 ﻿using SFML.Graphics;
-using SfmlConsole.TileMapper;
+using SmallHax.SfmlExtensions.TileMapper;
 using System;
 using System.Collections.Generic;
 
-namespace SfmlConsole
+namespace SmallHax.SfmlExtensions
 {
     public class Tileset
     {

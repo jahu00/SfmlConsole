@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace SfmlConsole.Tests
+namespace SmallHax.SfmlExtensions.Tests
 {
     public class TilesetTests
     {

@@ -1,6 +1,6 @@
 ﻿using SFML.Graphics;
 
-namespace SfmlConsole
+namespace SmallHax.SfmlExtensions
 {
     public record ConsoleCharacter
     {

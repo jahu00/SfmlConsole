@@ -1,17 +1,17 @@
 ﻿using SFML.Graphics;
 using SFML.Window;
-using SfmlConsole.TileMapper;
+using SmallHax.SfmlExtensions.TileMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SfmlConsole.Demo
+namespace SmallHax.SfmlExtensions.Demo
 {
     class Program
     {
-        static SfmlConsole.Console Demo1(Dictionary<string, Tileset> tilesets, string tilesetName)
+        static SmallHax.SfmlExtensions.Console Demo1(Dictionary<string, Tileset> tilesets, string tilesetName)
         {
-            var console = new SfmlConsole.Console(tilesets, 24, 32, 16, 16);
+            var console = new SmallHax.SfmlExtensions.Console(tilesets, 24, 32, 16, 16);
             for (var i = 0; i < 256; i++)
             {
                 var x = i % 16;
@@ -26,9 +26,9 @@ namespace SfmlConsole.Demo
             return console;
         }
 
-        static SfmlConsole.Console Demo2(Dictionary<string, Tileset> tilesets, string tilesetName)
+        static SmallHax.SfmlExtensions.Console Demo2(Dictionary<string, Tileset> tilesets, string tilesetName)
         {
-            var console = new SfmlConsole.Console(tilesets, 32, 32, 16, 16);
+            var console = new SmallHax.SfmlExtensions.Console(tilesets, 32, 32, 16, 16);
             for (var i = 0; i < 256; i++)
             {
                 var x = i % 16;
@@ -46,9 +46,9 @@ namespace SfmlConsole.Demo
             return console;
         }
 
-        static SfmlConsole.Console MapConsole(Dictionary<string, Tileset> tilesets, string tilesetName)
+        static SmallHax.SfmlExtensions.Console MapConsole(Dictionary<string, Tileset> tilesets, string tilesetName)
         {
-            var console = new SfmlConsole.Console(tilesets, 32, 32, 30, 24);
+            var console = new SmallHax.SfmlExtensions.Console(tilesets, 32, 32, 30, 24);
             for (var y = 0; y < console.Height; y++)
             {
                 for (var x = 0; x < console.Width; x++)
@@ -65,9 +65,9 @@ namespace SfmlConsole.Demo
             return console;
         }
 
-        static SfmlConsole.Console SidebarConsole(Dictionary<string, Tileset> tilesets, string tilesetName)
+        static SmallHax.SfmlExtensions.Console SidebarConsole(Dictionary<string, Tileset> tilesets, string tilesetName)
         {
-            var console = new SfmlConsole.Console(tilesets, 32, 32, 10, 24);
+            var console = new SmallHax.SfmlExtensions.Console(tilesets, 32, 32, 10, 24);
             var sidebarTemlate =
 @"┌────────┐
 │ Mon 1  │
@@ -107,9 +107,9 @@ namespace SfmlConsole.Demo
             return console;
         }
 
-        static SfmlConsole.Console ToolbarConsole(Dictionary<string, Tileset> tilesets, string tilesetName)
+        static SmallHax.SfmlExtensions.Console ToolbarConsole(Dictionary<string, Tileset> tilesets, string tilesetName)
         {
-            var console = new SfmlConsole.Console(tilesets, 32, 32, 21, 3);
+            var console = new SmallHax.SfmlExtensions.Console(tilesets, 32, 32, 21, 3);
             var brush = new ConsoleCharacter()
             {
                 TilesetName = tilesetName,
@@ -125,7 +125,7 @@ namespace SfmlConsole.Demo
 
         static void Main(string[] args)
         {
-            var window = new RenderWindow(new VideoMode(1280, 768, 32), "SfmlConsole Demo");
+            var window = new RenderWindow(new VideoMode(1280, 768, 32), "SmallHax.SfmlExtensions Demo");
             window.Closed += (sender, e) => { window.Close(); };
             window.SetFramerateLimit(60);
 

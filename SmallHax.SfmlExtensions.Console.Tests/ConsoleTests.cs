@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
-namespace SfmlConsole.Tests
+namespace SmallHax.SfmlExtensions.Tests
 {
     public class ConsoleTests
     {
@@ -17,7 +17,7 @@ namespace SfmlConsole.Tests
             var height = 10;
 
             //Act
-            var console = new SfmlConsole.Console(5, 10);
+            var console = new SmallHax.SfmlExtensions.Console(5, 10);
 
             //Assert
             console.Width.Should().Be(width, $"We set width to {width}.");
@@ -28,7 +28,7 @@ namespace SfmlConsole.Tests
         public void GetSetTest()
         {
             //Arrange
-            var console = new SfmlConsole.Console(10, 10);
+            var console = new SmallHax.SfmlExtensions.Console(10, 10);
             var x = 5;
             var y = 6;
             var characterToBeSet = new ConsoleCharacter() { TilesetName = "SomeTilemap", TileId = 'a' };
@@ -44,7 +44,7 @@ namespace SfmlConsole.Tests
         [Fact]
         public void SetText()
         {
-            var console = new SfmlConsole.Console(10, 10);
+            var console = new SmallHax.SfmlExtensions.Console(10, 10);
             var x = 5;
             var y = 6;
             var length = 26;
@@ -78,7 +78,7 @@ namespace SfmlConsole.Tests
                 { tilesetName, tileset }
             };
 
-            var console = new SfmlConsole.Console(tilesets, 32, 32, 10, 10);
+            var console = new SmallHax.SfmlExtensions.Console(tilesets, 32, 32, 10, 10);
             var character = new ConsoleCharacter() { TilesetName = tilesetName, TileId = 'a' };
             console.SetCharacter(1, 1, character);
             console.SetCharacter(2, 2, character);

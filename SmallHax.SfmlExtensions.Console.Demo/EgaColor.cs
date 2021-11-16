@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SfmlConsole.Demo
+namespace SmallHax.SfmlExtensions.Demo
 {
     public static class EgaColor
     {
